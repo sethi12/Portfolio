@@ -2,46 +2,95 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Github, Linkedin, Mail, ArrowRight, User, FolderOpen, Send, Briefcase, Code, Terminal, Zap, HardHat, Server, Cloud, Database } from 'lucide-react';
 
 // --- Configuration Data (Finalized for Chaitanya Sethi) ---
+// const config = {
+//   developerName: "Chaitanya Sethi",
+//   tagline: "Mobile & Cloud Architect | Crafting Cross-Platform Experiences with AI Integration.",
+//   skills: [
+//     "Flutter", "Firebase", "Google Cloud", "ReactJS", "NextJS", "NodeJS", "MongoDB", "AWS", "Supabase", "Java"
+//   ],
+//   projects: [
+//     {
+//       id: 1,
+//       title: "Zizzle: AI-Enhanced Social Media Platform",
+//       description: "A feature-rich mobile social media app with reels, chat, payments, and unique AI tools (Gemini API integration for image generation, chat, and voice control).",
+//       tech: ["Flutter", "Firebase", "NodeJS", "Google Cloud", "Gemini API"],
+//       liveLink: "INSERT_ZIZZLE_PLAYSTORE_URL_HERE",
+//       repoLink: "INSERT_ZIZZLE_GITHUB_URL_HERE",
+//       iconType: "Mobile"
+//     },
+//     {
+//       id: 2,
+//       title: "Modern E-Commerce Platform (React/Firebase)",
+//       description: "A high-performance e-commerce site using a modern JAMstack approach, focusing on clean UI/UX with **Tailwind CSS** and secure payment gateway integration.",
+//       tech: ["ReactJS", "NodeJS", "Firebase", "Tailwind CSS"],
+//       liveLink: "INSERT_ECOMMERCE_FIREBASE_VERCEL_URL_HERE",
+//       repoLink: "INSERT_ECOMMERCE_FIREBASE_GITHUB_URL_HERE",
+//       iconType: "Web"
+//     },
+//     {
+//       id: 3,
+//       title: "Robust E-Commerce Backend System (MERN)",
+//       description: "A traditional, scalable full-stack e-commerce solution built with the MERN stack to demonstrate deep expertise in comprehensive backend and database architecture.",
+//       tech: ["ReactJS", "ExpressJS", "MongoDB", "Bootstrap"],
+//       liveLink: "INSERT_ECOMMERCE_MERN_VERCEL_URL_HERE",
+//       repoLink: "INSERT_ECOMMERCE_MERN_GITHUB_URL_HERE",
+//       iconType: "Web"
+//     },
+//     // The Java Swing/MySQL project is mentioned in the summary below
+//   ],
+//   contact: {
+//     email: "chaitanya.sethi.dev@example.com", // Placeholder
+//     linkedin: "https://linkedin.com/in/chaitanyasethi-placeholder", // Placeholder
+//     github: "https://github.com/chaitanyasethi-placeholder", // Placeholder
+//   }
+// };
 const config = {
   developerName: "Chaitanya Sethi",
-  tagline: "Mobile & Cloud Architect | Crafting Cross-Platform Experiences with AI Integration.",
+  tagline: "Mobile • Cloud • Full-Stack Engineer | Building High-Performance Apps With AI & Scalable Architectures.",
   skills: [
-    "Flutter", "Firebase", "Google Cloud", "ReactJS", "NextJS", "NodeJS", "MongoDB", "AWS", "Supabase", "Java"
+    "Flutter", "Firebase", "Google Cloud", "ReactJS", "NextJS", "NodeJS",
+    "MongoDB", "AWS", "Supabase", "Java"
   ],
+
   projects: [
     {
       id: 1,
-      title: "Zizzle: AI-Enhanced Social Media Platform",
-      description: "A feature-rich mobile social media app with reels, chat, payments, and unique AI tools (Gemini API integration for image generation, chat, and voice control).",
+      title: "Zizzle – AI-Powered Social Media App",
+      description:
+        "A next-generation social platform built entirely in Flutter with a fully optimized reel engine, real-time chat system, creator monetization (₹19/₹99/₹249 plans), global content boosting, and AI utilities powered by Gemini API for smart chat, image generation, and voice-activated commands. Implemented fast-start video playback, caching, BetterPlayer optimization, and a global audio controller for synchronized UI updates across widgets.",
       tech: ["Flutter", "Firebase", "NodeJS", "Google Cloud", "Gemini API"],
-      liveLink: "INSERT_ZIZZLE_PLAYSTORE_URL_HERE",
-      repoLink: "INSERT_ZIZZLE_GITHUB_URL_HERE",
+      liveLink: "https://play.google.com/store/apps/details?id=com.InbredTechno.Zizzle",
+      repoLink: "https://github.com/sethi12/zizzle",
       iconType: "Mobile"
     },
+
     {
       id: 2,
-      title: "Modern E-Commerce Platform (React/Firebase)",
-      description: "A high-performance e-commerce site using a modern JAMstack approach, focusing on clean UI/UX with **Tailwind CSS** and secure payment gateway integration.",
+      title: "Modern E-Commerce Platform (React + Firebase)",
+      description:
+        "A fully dynamic e-commerce platform with responsive UI/UX designed using Tailwind CSS. Includes secure user authentication, product filtering, cart management, wishlist system, and Firebase-based real-time database reads with optimized queries. Deployed on Vercel with blazing-fast static generation.",
       tech: ["ReactJS", "NodeJS", "Firebase", "Tailwind CSS"],
       liveLink: "INSERT_ECOMMERCE_FIREBASE_VERCEL_URL_HERE",
       repoLink: "INSERT_ECOMMERCE_FIREBASE_GITHUB_URL_HERE",
       iconType: "Web"
     },
+
     {
       id: 3,
-      title: "Robust E-Commerce Backend System (MERN)",
-      description: "A traditional, scalable full-stack e-commerce solution built with the MERN stack to demonstrate deep expertise in comprehensive backend and database architecture.",
+      title: "Enterprise-Grade E-Commerce Backend (MERN Stack)",
+      description:
+        "A scalable backend architecture with Express APIs, JWT authentication, role-based access, order workflow, and MongoDB aggregation for high-speed filtering. Designed to model real-world e-commerce operations including admin dashboards, inventory logic, and payment workflow simulation.",
       tech: ["ReactJS", "ExpressJS", "MongoDB", "Bootstrap"],
       liveLink: "INSERT_ECOMMERCE_MERN_VERCEL_URL_HERE",
       repoLink: "INSERT_ECOMMERCE_MERN_GITHUB_URL_HERE",
       iconType: "Web"
-    },
-    // The Java Swing/MySQL project is mentioned in the summary below
+    }
   ],
+
   contact: {
-    email: "chaitanya.sethi.dev@example.com", // Placeholder
-    linkedin: "https://linkedin.com/in/chaitanyasethi-placeholder", // Placeholder
-    github: "https://github.com/chaitanyasethi-placeholder", // Placeholder
+    email: "sethichaitanya03@gmail.com",
+    linkedin: "https://www.linkedin.com/in/chaitanya-sethi-420974229/",
+    github: "https://github.com/sethi12",
   }
 };
 
@@ -258,15 +307,18 @@ const AboutSection = () => (
       <SectionTitle icon={User} title="About The Architect" />
       <div className="grid md:grid-cols-2 gap-12 items-start">
         <div className="space-y-6 text-lg text-gray-300">
-          <p>
-            An **MCA graduate** from Amity University Noida, I am a dedicated **Mobile & Cloud Architect** specializing in scalable cross-platform solutions. My expertise spans native-quality mobile development using **Flutter/Dart** and enterprise-level web applications built with **ReactJS/NextJS**.
-          </p>
-          <p>
-            I am deeply proficient in setting up resilient backends using **Node.js/Express**, integrating diverse databases like **MongoDB/MySQL**, and leveraging cloud platforms like **Firebase**, **Supabase**, **AWS**, and **Google Cloud** to ensure global scalability and performance.
-          </p>
-          <p className="text-cyan-300 font-semibold italic">
-            My flagship project, Zizzle, demonstrates a commitment to innovation by integrating **Gemini API** for advanced AI features, including image creation, smart chat, and voice command interfaces.
-          </p>
+<p>
+I am an MCA candidate at Amity University, specializing in architecting fast, scalable, and cloud-powered applications that deliver seamless, real-world performance.
+</p>
+
+<p>
+  I engineer production-grade mobile applications in **Flutter/Dart**, design robust backends using **Node.js/Express**, and build modern web apps with **ReactJS/Next.js**. I work extensively with **Firebase, Supabase, AWS, Google Cloud**, and both SQL/NoSQL databases to deliver secure and scalable systems.
+</p>
+
+<p className="text-cyan-300 font-semibold italic">
+  My flagship creation, Zizzle, showcases real-world engineering — optimized reel playback, proactive caching, global audio controllers, AI integrations (Gemini), real-time chat, and a complete monetization ecosystem.
+</p>
+
         </div>
         <div>
           <SectionTitle icon={Code} title="Skill Matrix" />
@@ -397,7 +449,7 @@ const ContactSection = () => {
             <div className="space-y-6">
               <a href={`mailto:${config.contact.email}`} className="flex items-center text-gray-300 hover:text-cyan-400 transition duration-200 group">
                 <Mail className="w-6 h-6 mr-3 text-cyan-400 group-hover:scale-110 transition" />
-                <span className="text-lg">Placeholder Email</span>
+                <span className="text-lg">sethichaitanya03@gmail.com</span>
               </a>
               <a href={config.contact.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-300 hover:text-cyan-400 transition duration-200 group">
                 <Linkedin className="w-6 h-6 mr-3 text-cyan-400 group-hover:scale-110 transition" />
