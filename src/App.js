@@ -411,7 +411,7 @@ const Cursor = () => {
     window.addEventListener("mousedown",md);
     window.addEventListener("mouseup",mu);
     return ()=>{ window.removeEventListener("mousemove",mv); window.removeEventListener("mousedown",md); window.removeEventListener("mouseup",mu); };
-  },[]);
+  },[]); // eslint-disable-line react-hooks/exhaustive-deps
   return(<>
     <motion.div style={{x:sx,y:sy,position:"fixed",zIndex:99999,pointerEvents:"none",top:0,left:0}}>
       <motion.div animate={{scale:click?.3:1}}
@@ -468,7 +468,7 @@ const Hero = ({ onContact }) => {
       else { clearInterval(t); setTimeout(() => setPhase(x=>x+1), 1800); }
     }, 68);
     return () => clearInterval(t);
-  }, [phase]);
+  }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <section id="hero"
