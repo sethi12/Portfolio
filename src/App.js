@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo, useCallback } from "react";
+import { useState, useEffect, useRef} from "react";
 import * as THREE from "three";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 
